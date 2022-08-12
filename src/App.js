@@ -3,8 +3,10 @@ import Navbar from './Components/Navbar'
 import Hero from './Components/Hero'
 import Card from './Components/Card'
 import './App.css';
+import data from './data'
+console.log(data)
 
-import Image1 from '../src/images/Photo_grid.png'
+
 
 
 // function App() {
@@ -31,16 +33,26 @@ import Image1 from '../src/images/Photo_grid.png'
 function App (){
   // <Navbar/>
   // <Hero/>
-  return (
+const hello = data.map(card => {
+  return <Card 
+  img = {card.coverImg} 
+  rating = {card.stats.rating} 
+  reviewCount = {card.stats.reviewCount}
+  location = {card.location}
+  price = {card.price}
+  title = {card.title}
+  description = {card.description}
+
+  
+  />
+} )
+console.log(hello)
+console.log(hello.stats)
+ 
+return (
     <div className = "container">
-            <Card 
-            img = {Image1}
-            rating = "6.0"
-            reviewCount = "(6)"
-            country = "USA"
-            title = "Life Lessons with Katie Zaferes"
-            price = "136"
-            />
+    
+           {hello}
     </div>
   )
 }
